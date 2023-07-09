@@ -1,6 +1,7 @@
 import prisma from "@/lib/prisma";
 import MarginLayout from "@/components/MarginLayout";
-import { PrismaClientKnownRequestError } from "@prisma/client/runtime";
+import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
+
 import type { TodoProps } from "@/lib/pages/todo";
 
 import { generateMetadata } from "@/lib/pages/todo";
