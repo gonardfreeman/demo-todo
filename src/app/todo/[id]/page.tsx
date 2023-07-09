@@ -1,5 +1,5 @@
 import prisma from "@/lib/prisma";
-import MarginLayout from "@/components/MarginLayout";
+import MarginLayout from "@/components/server/layout/MarginLayout";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 
 import type { TodoProps } from "@/lib/pages/todo";

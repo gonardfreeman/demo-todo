@@ -1,6 +1,6 @@
 import { Suspense } from "react";
-import MarginLayout from "@/components/MarginLayout";
-import Todos from "@/components/Todos";
+import MarginLayout from "@/components/server/layout/MarginLayout";
+import Todos from "@/components/server/Todos";
 
 function Home() {
 	return (

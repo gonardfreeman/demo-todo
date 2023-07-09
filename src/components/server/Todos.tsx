@@ -1,6 +1,6 @@
 import prisma from "@/lib/prisma";
 import { Todo } from "@prisma/client";
-import DateComponent from "@/components/Date";
+import DateComponent from "@/components/client/etc/Date";
 import Link from "next/link";
 
 type HomePageTodo = Pick<Todo, "id" | "title" | "createdDate" | "description">;
