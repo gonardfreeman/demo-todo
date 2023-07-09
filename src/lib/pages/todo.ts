@@ -3,11 +3,11 @@ import { PrismaClientKnownRequestError } from "@prisma/client/runtime";
 
 import { Metadata } from "next";
 
-type Props = {
+export type TodoProps = {
 	params: { id: string };
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: TodoProps): Promise<Metadata> {
 	try {
 		const todo = await prisma.todo.findUniqueOrThrow({ where: { id: Number(params.id) } });
 		return {
@@ -28,23 +28,3 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 		prisma.$disconnect();
 	}
 }
-
-async function TodoComponent({ params }: Props) {
-	try {
-		const todo = await prisma.todo.findUniqueOrThrow({ where: { id: Number(params.id) } });
-		return (
-			<div className="w-full">
-				<h1 className="flex text-lg">{todo.title}</h1>
-			</div>
-		);
-	} catch (err) {
-		if (err instanceof PrismaClientKnownRequestError) {
-			return <div>{err.message}</div>;
-		}
-	} finally {
-		prisma.$disconnect();
-	}
-	return <div>Not Found</div>;
-}
-
-export default TodoComponent;
