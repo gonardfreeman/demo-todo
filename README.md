@@ -38,3 +38,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 [] - Add dark theme
 [] - Add ability to delete and add todo
 [] - Add login with google
+[] - Deploy to Vercel
