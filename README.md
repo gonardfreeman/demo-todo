@@ -35,7 +35,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Todo
 
-[] - Add dark theme
+[x] - Add dark theme
 [] - Add ability to delete and add todo
 [] - Add login with google
 [] - Deploy to Vercel
