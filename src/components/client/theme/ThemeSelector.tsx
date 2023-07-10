@@ -1,16 +1,25 @@
 "use client";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 
-import { setPopupState } from "@/store/themeSelectorSlice";
+import { setPopupState, setTheme } from "@/store/themeSelectorSlice";
 import { useAppDispatch, useAppSelector } from "@/store/storeTypes";
 
 import CurrentThemeIcon from "./CurrentThemeIcon";
 import ThemeIconList from "./ThemeIconList";
 
 function ThemeSelector() {
+	const dispatch = useAppDispatch();
+
 	const buttonRef = useRef<HTMLButtonElement>(null);
 
-	const dispatch = useAppDispatch();
+	useEffect(() => {
+		if (!("theme" in localStorage)) {
+			dispatch(setTheme("auto"));
+			return;
+		}
+		dispatch(setTheme(localStorage.theme));
+	});
+
 	const isOpen = useAppSelector((state) => state.themeSelector.isOpen);
 	const themeName = useAppSelector((state) => state.themeSelector.theme);
 

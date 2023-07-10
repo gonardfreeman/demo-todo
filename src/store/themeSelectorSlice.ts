@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-import { getBrowserColorScheme, type DarkLight } from "@/lib/helper";
+import { type DarkLight } from "@/lib/helper";
 
 export type Theme = DarkLight | "auto";
 
@@ -10,23 +10,9 @@ export interface ThemeSelectorState {
 	theme: Theme;
 }
 
-if (
-	localStorage.theme === "dark" ||
-	(!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
-) {
-	document.documentElement.classList.add("dark");
-} else {
-	document.documentElement.classList.remove("dark");
-}
-
-let startTheme = getBrowserColorScheme();
-if ("theme" in localStorage) {
-	startTheme = localStorage.theme;
-}
-
 const initialState: ThemeSelectorState = {
 	isOpen: false,
-	theme: startTheme,
+	theme: "auto",
 };
 
 const themeSlice = createSlice({

@@ -16,7 +16,11 @@ export const metadata: Metadata = {
 
 function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="en">
+		<html lang="en" suppressHydrationWarning>
+			<head>
+				{/* eslint-disable-next-line @next/next/no-sync-scripts */}
+				<script type="text/javascript" src="/dark-theme.js"></script>
+			</head>
 			<body className={`${inter.className} text-slate-700 dark:text-slate-100 bg-slate-50 dark:bg-slate-600`}>
 				<Providers>
 					<Header />
