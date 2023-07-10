@@ -1,30 +1,11 @@
-import prisma from "@/lib/prisma";
-import { Todo } from "@prisma/client";
-import DateComponent from "@/components/client/etc/Date";
 import Link from "next/link";
 
-type HomePageTodo = Pick<Todo, "id" | "title" | "createdDate" | "description">;
+import DateComponent from "@/components/client/etc/Date";
+
+import { loadLast10 } from "@/lib/prisma/todoResolver";
 
 async function Todos() {
-	let todos: HomePageTodo[] = [];
-	try {
-		todos = await prisma.todo.findMany({
-			select: {
-				id: true,
-				title: true,
-				description: true,
-				createdDate: true,
-			},
-			orderBy: {
-				createdDate: "desc",
-			},
-			take: 10,
-		});
-	} catch (err) {
-		console.error(err);
-	} finally {
-		prisma.$disconnect();
-	}
+	const todos = await loadLast10();
 
 	return (
 		<ul className="w-1/2">
@@ -37,7 +18,7 @@ async function Todos() {
 									<span>{index + 1}.</span>
 									<Link
 										className="hover:text-sky-500 dark:hover:text-sky-400"
-										href={`/todo/${todo.id}`}
+										href={`/todos/${todo.id}`}
 									>
 										{todo.title}
 									</Link>

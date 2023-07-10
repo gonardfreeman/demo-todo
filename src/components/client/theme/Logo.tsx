@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 
-import { useAppSelector } from "@/store/storeTypes";
+import { useAppSelector } from "@/store/hooks";
 
 function Logo() {
 	const themeName = useAppSelector((state) => state.themeSelector.theme);

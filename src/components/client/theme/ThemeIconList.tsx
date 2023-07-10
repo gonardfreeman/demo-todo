@@ -5,7 +5,7 @@ import type { Theme } from "@/store/themeSelectorSlice";
 
 import { capitalize } from "@/lib/helper";
 import { setTheme, setPopupState } from "@/store/themeSelectorSlice";
-import { useAppDispatch, useAppSelector } from "@/store/storeTypes";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
 
 const AVAILABLE_THEMES = ["light", "dark", "auto"];
 

@@ -2,7 +2,7 @@
 import { useRef, useEffect } from "react";
 
 import { setPopupState, setTheme } from "@/store/themeSelectorSlice";
-import { useAppDispatch, useAppSelector } from "@/store/storeTypes";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
 
 import CurrentThemeIcon from "./CurrentThemeIcon";
 import ThemeIconList from "./ThemeIconList";
