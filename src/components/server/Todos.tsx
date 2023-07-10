@@ -4,6 +4,8 @@ import DateComponent from "@/components/client/etc/Date";
 
 import { loadLast10 } from "@/lib/prisma/todoResolver";
 
+// TODO: https://codevoweb.com/setup-redux-toolkit-in-nextjs-13-app-directory/
+
 async function Todos() {
 	const todos = await loadLast10();
 

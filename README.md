@@ -39,5 +39,3 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 [] - Add ability to delete and add todo
 [] - Add login with google
 [] - Deploy to Vercel
-
-https://codevoweb.com/setup-redux-toolkit-in-nextjs-13-app-directory/
